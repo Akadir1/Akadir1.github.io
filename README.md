@@ -9,7 +9,6 @@ Video editlemede ve bilgisayar donanımları hakkında bilgilerim var.
 
 -Github & Git
 
-## Projeler
 
 ## İletişim
 kadiralk1346@gmail.com
