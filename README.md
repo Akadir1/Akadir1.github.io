@@ -1,12 +1,11 @@
 # My Portfolio
-Portföyüme hoş geldiniz. Ben bir bilgisayar mühendisi ve video editörcüsüyüm.
+Merhaba, ben Abdulkadir Alkış portföyüme hoş geldiniz. 
 
 ## Hakkımda
-Video editlemede ve bilgisayar donanımları hakkında bilgilerim var.
-
+ Bilgisayar mühendisiyim ve video editörlüğü yapıyorum.
+ 
 ## Yetenekler
 -Adobe Premier Pro
-
 -Github & Git
 
 
