@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Abdulkadir Alkış</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+        header {
+            text-align: center;
+            background-color: red;
+            color: white;
+            padding: 20px 0;
+        }
+        header img {
+            max-width: 150px;
+            border-radius: 50%;
+        }
+        header p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        header button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        header button:hover {
+            background-color: #ffffff;
+        }
+        section {
+            padding: 20px;
+            background-color: white;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        section h2 {
+            font-weight: bold;
+        }
+        section p {
+            display: none;
+        }
+        #messageForm {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #messageForm input, #messageForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #messageForm button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('section h2').click(function() {
+                $(this).nextUntil('h2').toggle();
+            });
+
+            $('header button').click(function() {
+                $('section').hide();
+                $('footer').hide();
+                $('#messageForm').show();
+            });
+
+            $('#messageForm form').submit(function(event) {
+                event.preventDefault();
+
+                var formData = {
+                    'email': $('input[name=email]').val(),
+                    'subject': $('input[name=subject]').val(),
+                    'message': $('textarea[name=message]').val()
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'send_message.php',
+                    data: formData,
+                    success: function(response) {
+                        alert('Mesajınız başarıyla gönderildi!');
+                        $('#messageForm').hide();
+                    },
+                    error: function() {
+                        alert('Mesaj gönderilemedi, lütfen tekrar deneyin.');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <img src="IMG_20241104154202.jpg" alt="resim">
+    <p>Abdulkadir Alkış</p>
+    <nav>
+        <a href="#hakkimda">Hakkımda</a>
+        <a href="#projeler">Projeler</a>
+        <a href="#yetenekler">Yetenekler</a>
+        <a href="#iletisim">İletişim</a>
+    </nav>
+    <button>Mesaj Gönder</button>
+</header>
+
+<section id="hakkimda">
+    <h2>Hakkımda</h2>
+    <p>Merhaba, ben Abdulkadir Alkış. Bilgisayar mühendisiyim ve video editörlüğü yapıyorum.</p>
+</section>
+
+<section id="projeler">
+    <h2>Projeler</h2>
+    <p>Web programlama Projesi</p>
+    <p>YouTube Kick Yayıncı kesit sayfam</p>
+    <p>Birkaç Kick yayıncı YouTube sayfası</p>
+</section>
+
+<section id="yetenekler">
+    <h2>Yetenekler</h2>
+    <p>Adobe Premiere Pro</p>
+    <p>HTML & CSS</p>
+</section>
+
+<section id="iletisim">
+    <h2>İletişim</h2>
+    <p>E-mail: Kadiralk1346@gmail.com</p>
+</section>
+
+<div id="messageForm">
+    <h2>Mesaj Gönder</h2>
+    <form>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="text" name="subject" placeholder="Konu" required>
+        <textarea name="message" placeholder="Mesaj" rows="4" required></textarea>
+        <button type="submit">Gönder</button>
+    </form>
+    <div class="error" id="error"></div>
+</div>
+
+<footer>
+    © 2024 Abdulkadir Alkış. Tüm hakları saklıdır.
+</footer>
+
+</body>
+</html>
