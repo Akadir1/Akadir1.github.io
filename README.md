@@ -2,7 +2,7 @@
 Merhaba, ben Abdulkadir Alkış portföyüme hoş geldiniz. 
 
 ## Hakkımda
- Bilgisayar mühendisiyim ve video editörlüğü yapıyorum.
+ Bilgisayar mühendisiyim.
  
 ## Yetenekler
 -Adobe Premier Pro
